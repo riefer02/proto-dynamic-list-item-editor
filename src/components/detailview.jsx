@@ -12,6 +12,13 @@ function DetailView({ setUTM, curUTM, updateUTMList, utmList }) {
     id: randomID(),
   };
 
+  const updateMasterUTMList = () => {
+    const filteredNewUTMList = newUTMList.filter(
+      (item) => item.id !== selectedUTM.id
+    );
+    updateUTMList((utmList) => [...utmList, ...filteredNewUTMList]);
+  };
+
   return (
     <div>
       Detail Look at UTM: {selectedUTM.id}
@@ -47,7 +54,7 @@ function DetailView({ setUTM, curUTM, updateUTMList, utmList }) {
       <button
         className="bg-purple-200 p-1 m-2 rounded-lg shadow-md"
         onClick={() => {
-          updateUTMList((utmList) => [...utmList, ...newUTMList]);
+          updateMasterUTMList();
         }}
       >
         Save All New UTM
