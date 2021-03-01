@@ -9,9 +9,24 @@ function AppWrapper() {
 
   const [curUTM, setUTM] = useState({});
   const [utmList, updateUTMList] = useState([
-    { id: randomID() },
-    { id: randomID() },
-    { id: randomID() },
+    {
+      id: randomID(),
+      rootUrl: "https://instagram.com/",
+      campaign: "My Campaign",
+      jobName: "Scientist",
+    },
+    {
+      id: randomID(),
+      rootUrl: "https://facebook.com/",
+      campaign: "Another Campaign",
+      jobName: "Miner",
+    },
+    {
+      id: randomID(),
+      rootUrl: "https://twitter.com/",
+      campaign: "Trilogy Campaign",
+      jobName: "Soldier",
+    },
   ]);
 
   const isEmpty = (obj) => {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Item from "./item";
 
 function DetailView({ setUTM, curUTM, updateUTMList, utmList }) {
   const selectedUTM = curUTM || { id: "newID" };
@@ -10,6 +11,9 @@ function DetailView({ setUTM, curUTM, updateUTMList, utmList }) {
 
   const newUTM = {
     id: randomID(),
+    rootUrl: "",
+    campaign: "",
+    jobName: "developer",
   };
 
   const updateMasterUTMList = () => {
@@ -20,8 +24,7 @@ function DetailView({ setUTM, curUTM, updateUTMList, utmList }) {
   };
 
   return (
-    <div>
-      Detail Look at UTM: {selectedUTM.id}
+    <div className="m-4">
       <button
         className="bg-indigo-200 p-1 rounded-lg shadow-md block"
         onClick={() => {
@@ -33,14 +36,7 @@ function DetailView({ setUTM, curUTM, updateUTMList, utmList }) {
       </button>
       <ul>
         {newUTMList.map((item) => {
-          return (
-            <li
-              className="bg-red-200 m-2 p-2 block border border-black"
-              key={item.id}
-            >
-              A UTM Item {item.id}
-            </li>
-          );
+          return <Item key={item.id} item={item} />;
         })}
       </ul>
       <button
